@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #000000, #ffffff);
+    padding: 0 20px;
+    color: #ffffff;
+    animation: fadeIn 1s ease-in-out;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: all 0.3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 20px;
+    animation: slideInDown 1s ease-out forwards;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 48px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+header p {
+    color: #d1d1d1;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.4s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 720px;
+    margin-bottom: 20px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4);
+    background-color: #333;
+    animation: bounce 1.8s ease-in-out infinite, pulse 2s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.search-box input {
+    display: block;
+    appearance: none;
+    outline: none;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 16px;
+    background-color: #555;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-box input:focus {
+    background-color: #444;
+    transform: scale(1.03);
+}
+
+.search-box:focus-within {
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+    transform: translateY(-4px);
+}
+
+.results {
+    max-width: 768px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.result {
+    width: 100%;
+    padding: 20px;
+    margin: 16px 0;
+    background: linear-gradient(90deg, #111, #444);
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+}
+
+.result:hover {
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.6);
+    transform: translateY(-6px);
+    transition: all 0.4s ease-in-out;
+}
+
+.result h3 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.result p {
+    color: #e0e0e0;
+    font-size: 18px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    animation: fadeInUp 1.7s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.result a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #666;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    font-size: 16px;
+    animation: fadeInUp 1.9s ease-out forwards;
+    animation-delay: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.result a:hover {
+    background-color: #444;
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-out;
+}
+
+/* Hover animation effect */
+.result a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: #ffffff;
+    opacity: 0.1;
+    transition: all 0.4s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+}
+
+.result a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+}
+
+/* Animated text effect */
+.result a span {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+
+.result a:hover span {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(15px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .search-box {
+        margin-top: 20px;
+    }
+
+    .result h3 {
+        font-size: 24px;
+    }
+
+    .result p {
+        font-size: 16px;
+    }
+
+    .result a {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .result h3 {
+        font-size: 20px;
+    }
+
+    .search-box {
+        padding: 10px;
+    }
+
+    .result p {
+        font-size: 14px;
+    }
+
+    .result a {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
